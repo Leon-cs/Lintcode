@@ -1,4 +1,4 @@
-package com.leo.lintcode.primer;
+package com.leo.lintcode;
 
 /**
  * Created by ChangSheng on 2016/9/30 9:21.
