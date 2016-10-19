@@ -5,7 +5,13 @@ package com.leo.lintcode;
  */
 public class FindMin {
 
-    public int findMin(int[] nums){
+    /**
+     * 二分查找最小数
+     * @param nums  int[]
+     * @return      int
+     */
+
+    private int findMin(int[] nums){
         int len = nums.length;
         if (len == 1) return nums[0];
         return findMin(nums,0,len/2-1) < findMin(nums,len/2,len-1) ? findMin(nums,0,len/2-1) : findMin(nums,len/2,len-1);
