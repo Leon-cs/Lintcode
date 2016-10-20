@@ -12,14 +12,17 @@ public class CompareStrings {
      */
     public boolean compareStrings(String A, String B) {
         // write your code here
-        boolean result = false;
-        if (B.length() > A.length()) return result;
-
-        A.charAt(B.toCharArray()[1]);
-        for (int i = 0; i < B.toCharArray().length; i++){
-
+        int[] index = new int[26];
+        for (int i = 0; i < A.length(); i++) {
+            index[A.charAt(i) - 'A']++;
         }
-        return result;
+        for (int i = 0; i < B.length(); i++) {
+            index[B.charAt(i) - 'A']--;
+            if(index[B.charAt(i) - 'A'] < 0){
+                return false;
+            }
+        }
+        return true;
     }
 
 
