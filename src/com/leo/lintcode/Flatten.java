@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Flatten {
-    // TODO: 2016/10/18 写完
       // This is the interface that allows for creating nested lists.
       // You should not implement it, or speculate about its implementation
       public interface NestedInteger {
@@ -29,13 +28,17 @@ public class Flatten {
     public List<Integer> flatten(List<NestedInteger> nestedList) {
         // Write your code here
         List<Integer> result = new ArrayList<>();
-        for (NestedInteger nestedInteger : nestedList){
+        getAllInteger(result,nestedList);
+        return result;
+    }
+
+    private void getAllInteger(List<Integer> result, List<NestedInteger> list) {
+        for (NestedInteger nestedInteger : list) {
             if (nestedInteger.isInteger()){
                 result.add(nestedInteger.getInteger());
-            }else{
-                
+            } else {
+                getAllInteger(result,nestedInteger.getList());
             }
         }
-        return result;
     }
 }
